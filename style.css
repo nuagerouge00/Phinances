@@ -1,0 +1,320 @@
+/*
+=================================================================
+  STYLE.CSS — Finance SEG
+  Feuille de style pour HTML statique standard
+=================================================================
+
+  PHILOSOPHIE
+  -----------
+  Ce CSS ne combat aucun framework. Il part de zéro et définit
+  uniquement ce dont on a besoin.
+
+  GLOSSAIRE
+  ---------
+  body        = tout le contenu visible de la page
+  p           = paragraphe
+  ul          = liste à puces
+  ol          = liste numérotée
+  li          = élément de liste
+  h1...h6     = titres de niveau 1 à 6
+  details     = bloc dépliable HTML5
+  summary     = titre cliquable du bloc details
+  .topbar     = barre fixe en haut (sticky)
+  .page-title = titre de la page affiché dans la barre
+  rem         = unité relative à la taille racine (1rem = 16px)
+=================================================================
+*/
+
+
+/* ===============================================================
+   1. FOND DE PAGE
+   =============================================================== */
+
+html, body {
+  background-color: #f5f0e8;   /* beige clair — modifier ici pour changer */
+}
+
+body {
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1a1a1a;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem 1.5rem;   /* pas de padding-top : géré par topbar-spacer */
+}
+
+
+/* ===============================================================
+   2. BARRE FIXE EN HAUT (STICKY TOPBAR)
+   ===============================================================
+   Reste visible en permanence lors du scroll.
+   Contient les boutons + le titre de la page.
+*/
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #f5f0e8;   /* même couleur que le fond de page */
+  border-bottom: 1px solid #d6cfc4;
+  padding: 0.4rem 1.5rem 0.3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+/* Ligne des boutons */
+.topbar-buttons {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+/* Titre de la page dans la barre */
+.topbar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5c3a1e;              /* marron foncé — modifier ici pour changer */
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+/* Espace réservé sous la barre pour que le contenu ne se cache pas dessous */
+.topbar-spacer {
+  height: 68px;   /* ajuster si la hauteur de la topbar change */
+}
+
+/* Conteneur du corps de page */
+.page-content {
+  padding-top: 0.5rem;
+}
+
+
+/* ===============================================================
+   3. TITRES H1 À H6
+   =============================================================== */
+
+h1 {
+  color: #2563eb;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  color: #16a34a;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+h3 {
+  color: #dc2626;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+h4 {
+  color: #ea580c;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+h5 {
+  color: #ca8a04;
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+h6 {
+  color: #92400e;
+  font-size: 0.9rem;
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+
+/* ===============================================================
+   4. PARAGRAPHES ET LISTES
+   =============================================================== */
+
+p {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+ul, ol {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  padding-left: 1.8rem;
+}
+
+ul  { list-style-type: disc; }
+ol  { list-style-type: decimal; }
+
+li {
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+}
+
+
+/* ===============================================================
+   5. BLOCS DÉPLIABLES — style de base commun à tous
+   =============================================================== */
+
+details {
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  margin: 0.8rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.2rem 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+summary::before {
+  content: "▶";
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+}
+
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details > *:not(summary) {
+  margin-top: 0.5rem;
+}
+
+
+/* ===============================================================
+   6. COULEUR DU SUMMARY PAR NIVEAU
+   =============================================================== */
+
+details.niveau1 > summary { color: #2563eb; }
+details.niveau2 > summary { color: #16a34a; }
+details.niveau3 > summary { color: #dc2626; }
+details.niveau4 > summary { color: #ea580c; }
+details.niveau5 > summary { color: #ca8a04; }
+details.niveau6 > summary { color: #92400e; }
+
+
+/* ===============================================================
+   7. COULEURS DE FOND DES BLOCS PAR NIVEAU — version éclaircie
+   ===============================================================
+   Fonds très pâles pour ne pas surcharger visuellement.
+   Bordure gauche colorée pour identifier le niveau au premier coup d'œil.
+*/
+
+details.niveau1 {
+  background-color: #eef4ff;       /* bleu très très pâle */
+  border-left: 4px solid #2563eb;
+}
+
+details.niveau2 {
+  background-color: #edfaf2;       /* vert très très pâle */
+  border-left: 4px solid #16a34a;
+}
+
+details.niveau3 {
+  background-color: #fff4f4;       /* rouge très très pâle */
+  border-left: 4px solid #dc2626;
+}
+
+details.niveau4 {
+  background-color: #fff7f0;       /* orange très très pâle */
+  border-left: 4px solid #ea580c;
+}
+
+details.niveau5 {
+  background-color: #fffef0;       /* jaune très très pâle */
+  border-left: 4px solid #ca8a04;
+}
+
+details.niveau6 {
+  background-color: #faf8f5;       /* beige très très pâle */
+  border-left: 4px solid #92400e;
+}
+
+
+/* ===============================================================
+   8. TAILLE DE POLICE DES SUMMARY PAR NIVEAU
+   ===============================================================
+   Correspond aux tailles définies pour h1-h6.
+   Utilisé par convert.py via class="summary-hN".
+*/
+
+details.niveau1 > summary.summary-h1 { font-size: 2rem; }
+details.niveau2 > summary.summary-h2 { font-size: 1.6rem; }
+details.niveau3 > summary.summary-h3 { font-size: 1.3rem; }
+details.niveau4 > summary.summary-h4 { font-size: 1.1rem; }
+details.niveau5 > summary.summary-h5 { font-size: 1rem; font-style: italic; }
+details.niveau6 > summary.summary-h6 { font-size: 0.9rem; font-style: italic; }
+
+
+/* ===============================================================
+   9. BOUTONS (barre et toggle)
+   =============================================================== */
+
+.btn-toggle {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: #e8e2d9;
+  border: 1px solid #c8bfb3;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #374151;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.btn-toggle:hover {
+  background-color: #ddd6cc;
+}
+
+
+/* ===============================================================
+   10. NAVIGATION INDEX
+   =============================================================== */
+
+.index-liste {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.index-liste li {
+  margin: 0.5rem 0;
+}
+
+.index-liste a {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.index-liste a:hover {
+  text-decoration: underline;
+}
