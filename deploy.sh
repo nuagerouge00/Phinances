@@ -9,8 +9,8 @@ DEST=~/github/Phinances
 cp "$SOURCE"/[0-9]*.md "$DEST"/
 
 cd "$DEST"
-python convert.py *.md
-python generate_index.py
+python3 convert.py *.md
+python3 generate_index.py
 git add .
 git commit -m "mise à jour $(date '+%Y-%m-%d %H:%M')"
 git push

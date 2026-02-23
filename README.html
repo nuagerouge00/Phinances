@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barre fixe en haut : toujours visible au scroll -->
+  <div class="topbar">
+    <div class="topbar-buttons">
+      <a href="index.html" class="btn-toggle">← Index</a>
+      <button class="btn-toggle" id="btn-toggle-all">⊞ Replier / Déplier tout</button>
+    </div>
+    <div class="topbar-title">README</div>
+  </div>
+
+  <!-- Espace pour compenser la hauteur de la barre fixe -->
+  <div class="topbar-spacer"></div>
+
+  <!-- Corps du document -->
+  <div class="page-content">
+<details class="niveau1">
+  <summary class="summary-h1">Phinances</summary>
+</details>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('btn-toggle-all');
+      btn.addEventListener('click', function () {
+        var all = Array.from(document.querySelectorAll('details'));
+        var anyOpen = all.some(function (d) { return d.open; });
+        all.forEach(function (d) { d.open = !anyOpen; });
+      });
+    })();
+  </script>
+
+</body>
+</html>
