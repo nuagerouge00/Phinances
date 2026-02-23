@@ -2,7 +2,7 @@
 # deploy.sh — Conversion et publication vers GitHub Pages
 # La sortie complète est enregistrée dans deploy_log.txt (écrasé à chaque lancement)
 
-SOURCE=~/Nextcloud/Obsidian_sur_Nextcloud/Phinances
+SOURCE=~/Nextcloud/Obsidian_sur_nextcloud/Phinances
 DEST=~/github/Phinances
 LOG="$DEST/deploy_log.txt"
 

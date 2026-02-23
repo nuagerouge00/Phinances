@@ -1,7 +1,6 @@
-=== Déploiement 2026-02-23 09:46:51 ===
+=== Déploiement 2026-02-23 09:48:03 ===
 
 -- Copie des fichiers source --
-cp: impossible d'évaluer '/home/lkj/Nextcloud/Obsidian_sur_Nextcloud/Phinances/[0-9]*.md': Aucun fichier ou dossier de ce nom
 -- Conversion Markdown → HTML --
 [config] Chargé depuis : config.json
 [lecture] 1 Questions de Base.md (477293 caractères)
@@ -16,14 +15,18 @@ cp: impossible d'évaluer '/home/lkj/Nextcloud/Obsidian_sur_Nextcloud/Phinances/
 [titre]   3 Croissance et Limites Ecologiques
 [parsing] 36 nœuds — niveaux repliables : [1, 2, 3]
 [sortie]  → 3 Croissance et Limites Ecologiques.html
+[lecture] 4 Copier coller Rente.md (16572 caractères)
+[titre]   4 Copier coller Rente
+[parsing] 76 nœuds — niveaux repliables : [1, 2, 3]
+[sortie]  → 4 Copier coller Rente.html
 [lecture] README.md (11 caractères)
 [titre]   README
 [parsing] 1 nœuds — niveaux repliables : [1, 2, 3]
 [sortie]  → README.html
 
-✓ 4 fichier(s) converti(s).
+✓ 5 fichier(s) converti(s).
 
 -- Génération de l'index --
-[index] → index.html (4 document(s) listé(s))
+[index] → index.html (5 document(s) listé(s))
 
 -- Publication git --
